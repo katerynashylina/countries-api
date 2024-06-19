@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.select {
+  background-color: $whiteColor;
+  box-shadow: $boxShadow;
+  width: 200px;
+  border-radius: 10px;
+  
+  &__header {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 30px;
+    font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+  
+  &__option {
+    margin-bottom: 6px;
+    padding-inline: 30px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+
+    transition: background-color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $grayColor;
+    }
+  }
+}
