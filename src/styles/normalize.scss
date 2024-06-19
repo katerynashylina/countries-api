@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  color: $blackColor;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: $blackColor;
+}
+
+p {
+  font-size: 16px;
+  color: $blackColor;
+  font-weight: 400;
+}
