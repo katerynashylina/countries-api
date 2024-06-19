@@ -7,8 +7,7 @@ import { CountryType } from "@/types/CountryType";
 
 export default async function Home() {
   const countries: CountryType[] = await getAllCountries();
-
-  // console.log(countries[4])
+  
   return (
     <main className="page">
       <div className="page__top">

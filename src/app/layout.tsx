@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../styles/normalize.scss";
 import "../styles/reset.scss";
 import "../styles/page.scss";
+import { ReduxProvider } from "@/redux/provider";
 
 export const metadata: Metadata = {
   title: "Country API",
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body>
         <Header />
 
-        {children}
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );

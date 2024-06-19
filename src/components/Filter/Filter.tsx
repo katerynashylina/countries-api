@@ -6,6 +6,7 @@ import { Regionstype } from "@/types/RegionsType";
 import arrowUp from "../../../public/arrow_up.svg";
 import arrowDown from "../../../public/arrow_down.svg";
 import Image from "next/image";
+import { useAppSelector } from "@/redux/hooks";
 
 type Props = {
   options: Regionstype[],
@@ -13,6 +14,7 @@ type Props = {
 
 const Filter = ({ options }: Props) => {
   const [selectedOption, setSelectedOption] = useState<Regionstype | null>(null);
+  const region = useAppSelector(store => store.regionReducer.region);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -20,6 +22,8 @@ const Filter = ({ options }: Props) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
+
+  // console.log(region)
 
   return (
     <div className="select">
