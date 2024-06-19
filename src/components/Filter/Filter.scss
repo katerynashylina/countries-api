@@ -5,6 +5,8 @@
   box-shadow: $boxShadow;
   width: 200px;
   border-radius: 10px;
+  // z-index: 10;
+  position: relative;
   
   &__header {
     height: 55px;
@@ -21,6 +23,13 @@
 
   &__list {
     list-style: none;
+    position: absolute;
+    z-index: 10;
+    background-color: $whiteColor;
+    box-shadow: $boxShadow;
+    width: 200px;
+    border-radius: 10px;
+    margin-top: 15px;
   }
   
   &__option {
