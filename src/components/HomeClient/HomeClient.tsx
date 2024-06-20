@@ -1,12 +1,14 @@
 "use client"
 import { regions } from "@/helpers/consts";
+import debounce from 'lodash.debounce';
 import Filter from "../Filter/Filter";
 import Search from "../Search/Search";
 import { CountryType } from "@/types/CountryType";
 import CountryCard from "../CountryCard/CountryCard";
-import { useEffect, useState } from "react";
-import { useAppSelector } from "@/redux/hooks";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { getAllCountries, getCountryByRegion } from "@/helpers/getCountries";
+import { setInput } from "@/redux/features/inputSlice";
 
 type Props = {
   initialCountries: CountryType[],
@@ -16,6 +18,10 @@ const HomeClient = ({ initialCountries }: Props) => {
   const [countries, setCountries] = useState<CountryType[]>(initialCountries);
   const region = useAppSelector(store => store.regionReducer.region);
   const inputValue = useAppSelector(store => store.inputReducer.input);
+  const [appliedQuery, setAppliedQuery] = useState('');
+  const dispatch = useAppDispatch();
+
+  const applyQuery = useCallback(debounce(setAppliedQuery, 800), [])
 
   const loadCountries = async () => {
     try {
@@ -29,7 +35,7 @@ const HomeClient = ({ initialCountries }: Props) => {
 
       if (inputValue) {
         data = data.filter((el: CountryType) =>
-          el.name.common.toLowerCase().includes(inputValue.toLowerCase())
+          el.name.common.toLowerCase().includes(appliedQuery.toLowerCase())
         );
       }
 
@@ -41,12 +47,19 @@ const HomeClient = ({ initialCountries }: Props) => {
 
   useEffect(() => {
     loadCountries();
-  }, [region, inputValue])
+  }, [region, appliedQuery, inputValue]);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setInput((e.target.value)));
+    applyQuery(e.target.value);
+  }
 
   return (
     <main className="page">
       <div className="page__top">
-        <Search />
+        <Search
+          onChange={handleInputChange}
+        />
 
         <Filter
           options={regions}

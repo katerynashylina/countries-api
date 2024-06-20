@@ -2,17 +2,17 @@
 import Image from "next/image";
 import "./Search.scss"
 import search from "../../../public/search.svg";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setInput } from "@/redux/features/inputSlice";
 
-const Search = () => {
+type Props = {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+}
+
+const Search = ({ onChange }: Props) => {
   const inputValue = useAppSelector(store => store.inputReducer.input);
   const dispatch = useAppDispatch();
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setInput(e.target.value))
-  }
 
   return (
     <label className="search">
@@ -29,7 +29,7 @@ const Search = () => {
         className="search__input"
         placeholder="Search for a country..."
         value={inputValue}
-        onChange={handleInputChange}
+        onChange={onChange}
       />
     </label>
   )
