@@ -7,10 +7,19 @@ const CountryCard = ({ country }: {country: CountryType}) => {
     <div className="card">
       <Image
         src={country.flags.svg}
-        alt={country.name}
+        alt={country.name.common}
         width={200}
-        height={200}
+        height={170}
+        className="card__image"
       />
+
+      <div className="card__info">
+        <strong>{country.name.common}</strong>
+
+        <p><b>Population:</b> {country.population}</p>
+        <p><b>Region:</b> {country.region}</p>
+        <p><b>Capital:</b> {country.capital}</p>
+      </div>
     </div>
   )
 };

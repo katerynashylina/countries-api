@@ -1,9 +1,6 @@
-// type Language = {
-
-// }
 
 export type CountryType = {
-  name: string,
+  name: { common: string },
   nativeName: { official: string },
   tld: string[],
   currencies: { XPF: { name: string, symbol: string } },
