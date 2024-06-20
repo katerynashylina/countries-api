@@ -1,6 +1,3 @@
-// type Language = {
-
-// }
 
 export type CountryType = {
   name: { common: string },

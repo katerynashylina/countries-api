@@ -3,8 +3,6 @@ import "./CountryCard.scss"
 import Image from "next/image";
 
 const CountryCard = ({ country }: {country: CountryType}) => {
-
-
   return (
     <div className="card">
       <Image
