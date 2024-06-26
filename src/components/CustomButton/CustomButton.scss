@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.button {
+  border: none;
+  background-color: $whiteColor;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 8px;
+  box-shadow: $boxShadow;
+  margin-bottom: 45px;
+
+  transition: color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: $blueColor;
+  }
+}

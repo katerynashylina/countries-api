@@ -1,14 +1,38 @@
+type NativeNameEntry = {
+  official: string;
+  common: string;
+};
+
+type NativeNameType = {
+  [key: string]: NativeNameEntry;
+};
+
+type CountryNameType = {
+  common: string;
+  official: string;
+  nativeName: NativeNameType;
+};
+
+type CurrencyDetail = {
+  name: string;
+  symbol: string;
+};
+
+type Currencies = {
+  [code: string]: CurrencyDetail;
+};
 
 export type CountryType = {
-  name: { common: string },
-  nativeName: { official: string },
+  name: CountryNameType,
   tld: string[],
-  currencies: { XPF: { name: string, symbol: string } },
+  currencies: Currencies,
   capital: string[],
   region: string,
+  subregion: string,
   languages: string[],
   population: number,
-  flags: { svg: string },
+  flags: { svg: string, alt: string },
   borders: string[],
   id: number,
+  map: { googleMaps: string }
 }

@@ -11,3 +11,4 @@ const request = async (url: string) => {
 export const getAllCountries = () => request("all");
 export const getCountryDetails = (name: string) => request(`name/${name}`);
 export const getCountryByRegion = (region: string) => request(`region/${region}`);
+export const getCountryByCode = (code: string) => request(`alpha/${code}`);

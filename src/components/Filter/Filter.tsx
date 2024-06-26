@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import "./Filter.scss"
+import { useState } from "react";
+import Image from "next/image";
 import { Regionstype } from "@/types/RegionsType";
 import arrowUp from "../../../public/arrow_up.svg";
 import arrowDown from "../../../public/arrow_down.svg";
-import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setRegion } from "@/redux/features/filterSlice";
+import "./Filter.scss"
 
 type Props = {
   options: Regionstype[],
