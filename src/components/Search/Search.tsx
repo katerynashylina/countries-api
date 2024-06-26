@@ -1,10 +1,9 @@
 "use client"
 import Image from "next/image";
-import "./Search.scss"
-import search from "../../../public/search.svg";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { setInput } from "@/redux/features/inputSlice";
+import search from "../../../public/search.svg";
+import "./Search.scss"
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void,

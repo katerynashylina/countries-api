@@ -1,9 +1,9 @@
 import Header from "@/components/Header/Header";
 import type { Metadata } from "next";
+import { ReduxProvider } from "@/redux/provider";
 import "../styles/normalize.scss";
 import "../styles/reset.scss";
 import "../styles/page.scss";
-import { ReduxProvider } from "@/redux/provider";
 
 export const metadata: Metadata = {
   title: "Country API",

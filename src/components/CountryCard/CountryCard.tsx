@@ -1,10 +1,11 @@
+import Link from "next/link";
+import Image from "next/image";
 import { CountryType } from "@/types/CountryType";
 import "./CountryCard.scss"
-import Image from "next/image";
 
 const CountryCard = ({ country }: {country: CountryType}) => {
   return (
-    <div className="card">
+    <Link href={`/${country.name.common}`} className="card">
       <Image
         src={country.flags.svg}
         alt={country.name.common}
@@ -20,7 +21,7 @@ const CountryCard = ({ country }: {country: CountryType}) => {
         <p><b>Region:</b> {country.region}</p>
         <p><b>Capital:</b> {country.capital}</p>
       </div>
-    </div>
+    </Link>
   )
 };
 

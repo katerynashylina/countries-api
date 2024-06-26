@@ -1,0 +1,16 @@
+@import "../../styles/variables.scss";
+
+.border {
+  text-decoration: none;
+  color: $blackColor;
+  padding: 6px 12px;
+  background-color: $grayColor;
+  box-shadow: $boxShadow;
+
+  transition: color 0.3s;
+
+  &:hover {
+    color: $blueColor;
+    cursor: pointer;
+  }
+}

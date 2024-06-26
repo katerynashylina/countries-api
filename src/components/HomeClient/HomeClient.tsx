@@ -1,14 +1,14 @@
 "use client"
-import { regions } from "@/helpers/consts";
 import debounce from 'lodash.debounce';
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import Filter from "../Filter/Filter";
 import Search from "../Search/Search";
 import { CountryType } from "@/types/CountryType";
 import CountryCard from "../CountryCard/CountryCard";
-import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { getAllCountries, getCountryByRegion } from "@/helpers/getCountries";
 import { setInput } from "@/redux/features/inputSlice";
+import { regions } from "@/helpers/consts";
 
 type Props = {
   initialCountries: CountryType[],
@@ -66,7 +66,8 @@ const HomeClient = ({ initialCountries }: Props) => {
         />
       </div>
 
-      <div className="page__countries">
+      {!!countries.length ? (
+        <div className="page__countries">
         {countries.map(country => (
           <CountryCard
             country={country}
@@ -74,6 +75,11 @@ const HomeClient = ({ initialCountries }: Props) => {
           />
         ))}
       </div>
+      ) : (
+        <h2>
+          Sorry, no countries with this selection were found
+        </h2>
+      )}
     </main>
   )
 };
